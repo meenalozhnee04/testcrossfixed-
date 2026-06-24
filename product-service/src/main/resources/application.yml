@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: product-service
+  data:
+    mongodb:
+      host: Localhost
+      port: 27018
+      database: ProductService
+      uri: mongodb+srv://root:root@productservice.fya2gbe.mongodb.net/?retryWrites=true&w=majority&appName=ProductService
+
+server:
+  port: 8081
+
+eureka:  # Eureka client configs
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management: # Distributed Tracing
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints: # Spring Boot Actuator (for health check and metrics endpoints)
+    web:
+      exposure:
+        include: "*"
